@@ -1,0 +1,21 @@
+<p>pokemon-list works!</p>
+<pagination-controls (pageChange)="page=$event;pokemons=[];getPokemons()"></pagination-controls>
+
+<div class="pokemon-grid">
+  <div class="box" [ngStyle]="{'background': pokemon.types[1]?.type.name ? 'linear-gradient(135deg,'+ getTypeColor(pokemon.types[1].type.name)+' 50%, ' + getTypeColor(pokemon.types[0].type.name) + ' 50%)' : getTypeColor(pokemon.types[0].type.name)}"
+   *ngFor="let pokemon of pokemons | paginate: { itemsPerPage: 10, currentPage: page, totalItems: totalPokemons }">
+    <img [src]="pokemon.sprites.front_default" alt="Pokemon">
+    <h2>{{ pokemon.name }}</h2>
+    <p><b>ID:</b> {{ pokemon.id }}</p>
+    <p><b>Height:</b> {{ pokemon.height }}</p>
+    <div class="pokemon-type"><p>
+      <b>Type:</b> {{ pokemon.types[0].type.name }} {{ pokemon.types[1]?.type.name ? ' / ' + pokemon.types[1].type.name : '' }}
+    </p></div>
+
+
+
+  </div>  </div>
+
+
+<pagination-controls (pageChange)="page=$event;pokemons=[];getPokemons()"></pagination-controls>
+

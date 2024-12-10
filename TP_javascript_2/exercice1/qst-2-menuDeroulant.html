@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Hachem Squalli">
+    <title>QST-2 Menu Déroulant</title>
+</head>
+<style>
+*{
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+}
+
+.dropdown-content a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px 20px;
+}
+
+
+.dropdown-title:hover {
+    background-color: #0056b3;
+}
+.dropdown-content {
+    list-style: none;
+
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+.show{
+    max-height: 200px;
+    opacity :1;
+}
+</style>
+
+
+<body>
+    <div class="dropdown">
+        <button class="dropdown-title">Menu</button>
+        <ul class="dropdown-content">
+            <li><a href="#option1">Option 1</a></li>
+            <li><a href="#option2">Option 2</a></li>
+            <li><a href="#option3">Option 3</a></li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropdownTitle = document.querySelector('.dropdown-title');
+            const dropdownContent = document.querySelector('.dropdown-content');
+        
+            dropdownTitle.addEventListener('click', () => {
+                dropdownContent.classList.toggle('show');
+            });
+        });
+        
+    </script>
+
+
+</body>
+</html>

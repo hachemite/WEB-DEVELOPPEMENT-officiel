@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thème Clair/Sombre</title>
+    <style>
+        body {
+            transition: all 0.3s ease;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        body.light-theme {
+            background-color: #ffffff;
+            color: #333333;
+        }
+        
+        body.dark-theme {
+            background-color: #333333;
+            color: #ffffff;
+        }
+        
+        #theme-toggle {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .light-theme #theme-toggle {
+            background-color: #333333;
+            color: #ffffff;
+        }
+        
+        .dark-theme #theme-toggle {
+            background-color: #ffffff;
+            color: #333333;
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <button id="theme-toggle">Changer de thème</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+
+            // Récupérer le thème sauvegardé dans localStorage
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                body.className = savedTheme;
+            }
+
+            themeToggle.addEventListener('click', () => {
+                if (body.classList.contains('light-theme')) {
+                    body.classList.replace('light-theme', 'dark-theme');
+                    localStorage.setItem('theme', 'dark-theme');
+                } else {
+                    body.classList.replace('dark-theme', 'light-theme');
+                    localStorage.setItem('theme', 'light-theme');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

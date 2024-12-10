@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+    <head>
+        <title>ex3 calucatrice minimal</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <form>
+            <label for="nombre1">Nombre 1</label>
+            <input type="number" id="nombre1" title="Entrez le premier nombre" placeholder="Premier nombre">
+            <label for="nombre2">Nombre 2</label>
+            <input type="number" id="nombre2" title="Entrez le deuxième nombre" placeholder="Deuxième nombre">
+            <label for="resultat">Resultat</label>
+            <input type="number" id="resultat" title="Résultat du calcul" placeholder="Résultat" readonly>
+            <label for="operation">Operation</label>
+            <select id="operation" name="operation" title="Sélectionnez l'opération">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <button type="button" id="calculer" onclick="Calculate()" title="Calculer le résultat">Calculer</button>
+        </form>
+    </body>
+    <script>
+          function Calculate() {
+              var Number1 = parseFloat(document.getElementById('nombre1').value);
+              var Number2 = parseFloat(document.getElementById('nombre2').value);
+              var Operation = document.getElementById('operation').value;
+              Resultat = document.getElementById('resultat').value;
+
+              var result = null;
+
+              if(Operation == "+"){
+                  result = Number1 + Number2;
+              }
+              if(Operation == "-"){
+                  result = Number1 - Number2;
+              }
+              if(Operation == "*"){
+                  result = Number1 * Number2;
+              }
+              if(Operation == "/"){
+                if(!Number2 == 0){
+                  result = Number1 / Number2;
+                }
+                else{
+                    result = "Erreur";
+                  alert("Division par 0 impossible");
+                }
+              }
+        
+              document.getElementById('resultat').value = result;
+          }
+</script>
+</html>

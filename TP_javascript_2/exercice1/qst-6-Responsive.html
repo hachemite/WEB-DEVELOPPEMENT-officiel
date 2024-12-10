@@ -1,0 +1,75 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Hachem Squalli">
+        <title>Responsive</title>
+</head>
+<body>        
+    <h1>Responsive</h1>
+
+    <div class="container">
+        <div class="box" id="box1">Boite1</div>
+        <div class="box" id="box2">Boite2</div>
+        <div class="box" id="box3">Boite3</div>
+        <div class="box" id="box4">Boite4</div>
+    </div>
+
+<style>
+    .container{
+        display:flex;
+        flex-wrap:wrap;
+    }
+    .box{
+        text-align: center;
+        padding-top: 25px;
+        font-family: Arial, Helvetica, sans-serif ;
+        color:antiquewhite;
+        width: 300px;
+        height: 50px;
+        border:none;
+        background-color: rgb(27, 198, 237);
+        border-radius: 10px;
+        margin: 3vh;
+    }
+    .hidden {
+        display: none;
+    }
+    @media (max-width: 768px) {
+        .box {
+            width: 100%;
+        }
+    }
+</style>
+
+    <script>
+        function handleResize() {
+            const boxes = document.querySelectorAll('.box');
+            const width = window.innerWidth;
+            
+            if (width <= 480) {
+                boxes.forEach((box, index) => {
+                    if (index > 1) {
+                        box.classList.add('hidden');
+                    }
+                });
+            } else if (width <= 768) {
+                boxes.forEach((box, index) => {
+                    if (index > 2) {
+                        box.classList.add('hidden');
+                    } else {
+                        box.classList.remove('hidden');
+                    }
+                });
+            } else {
+                boxes.forEach(box => {
+                    box.classList.remove('hidden');
+                });
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+    </script>
+</body>
+</html>

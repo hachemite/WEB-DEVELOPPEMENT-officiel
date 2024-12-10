@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Hachem Squalli">
+        <title>Filtrage de tableau</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+    
+    <body>
+        <div class="container">
+            <h2> List de Produit</h2>
+            <input type="text" id="searchInput" placeholder="Rechercher un produit">
+            <ul id="productList">
+                <li>Ordinateur Portable</li>
+                <li>Téléphone Portable</li>
+                <li>Tablette</li>
+                <li>Smartwatch</li>
+                <li>Télévision</li>
+                <li>Appareil Photo</li>
+                <li>Appareil Photo</li>
+            </ul>
+
+            <script>
+                const searchInput = document.getElementById('searchInput');
+                const productList = document.getElementById('productList');
+                const products = productList.getElementsByTagName('li')
+
+
+                searchInput.addEventListener('input', () => {
+                    const searchTerm = searchInput.value.toLowerCase();
+
+                    for(let i =0;i< products.length;i++){
+                        const product = products[i];
+                        const productText = product.textContent.toLowerCase();
+                        if(productText.includes(searchTerm)){
+                            product.style.display = 'block';
+                        }else{
+                            product.style.display = 'none';
+                        }
+                    }
+                })
+
+
+            </script>
+    </body>
+
+</html>

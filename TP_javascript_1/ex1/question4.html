@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex1 question4</title>
+
+    <head>
+       <meta content="author" name="Hachem Squalli"> 
+    </head>
+
+    <body>
+
+        <form onsubmit="return valider()">
+            <label>nom</label>
+            <input type="text" id="nom" placeholder="Entrer votre Nom">
+            <label>email</label>
+            <input type="text" id="email" placeholder="entrer votre email">
+            <button type="submit">Valider</button>
+        </form>
+
+    </body>
+
+    <script>
+        function valider() {
+            var Nom = document.getElementById('nom').value;
+            var Email = document.getElementById('email').value;
+
+            if (Nom === "" || Email === "") {
+                alert("Entrer s'il vous plait votre information");
+                return false;
+            } else {
+                alert("Merci de votre participation");
+                return true;
+            }
+        }
+    </script>
+</html>
+</html>
+

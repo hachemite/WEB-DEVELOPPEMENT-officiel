@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Hachem Squalli">
+    <title>To-Do List</title>
+
+</head>
+<body>
+    <div class="container">
+        <h2>My To-Do List</h2>
+        <form id="form">
+            <div class="input-container">
+                <input type="text" id="input" placeholder="Ajouter un tâche" autocomplete="off" />
+                <button type="submit">Ajouter</button>
+            </div>
+        </form>
+        <ul class="todos" id="todos"></ul>
+    </div>
+
+</body>
+</html>
+
+    <script>
+        const form = document.getElementById('form');
+        const input = document.getElementById('input');
+        const todos = document.getElementById('todos');
+
+        // Fonction pour ajouter une tâche à la liste
+        function addTask() {
+            const taskText = input.value.trim(); // Récupérer et nettoyer le texte saisi
+            if (taskText) { // Ajouter seulement s'il y a du texte dans l'entrée
+                const todoEl = document.createElement('li'); // Créer un nouvel élément de liste
+                todoEl.innerHTML = `${taskText} <button class="delete-btn">Supprimer</button>`; // Ajouter le texte et un bouton de suppression
+
+                // Ajouter l'élément de liste à la liste des tâches
+                todos.appendChild(todoEl);
+
+                // Effacer le champ de saisie
+                input.value = '';
+
+                // Attacher la fonctionnalité de suppression au bouton
+                const deleteButton = todoEl.querySelector('.delete-btn');
+                deleteButton.addEventListener('click', () => {
+                    todos.removeChild(todoEl); // Supprimer la tâche lorsque le bouton de suppression est cliqué
+                });
+            }
+        }
+
+        // Écouter la soumission du formulaire
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Empêcher la soumission du formulaire et le rechargement de la page
+            addTask(); // Ajouter la tâche
+        });
+    </script>
+</body>
+</html>

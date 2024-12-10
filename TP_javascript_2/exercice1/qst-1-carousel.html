@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Hachem Squalli">
+    <title>QST-1-CAROUSEL</title>
+</head>
+<style>  
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(165, 165, 165);
+  }
+  
+  h1 {
+    text-align: center;
+    margin: 10px;
+  }
+
+  img {
+    width: 500px;
+    height: 500px;
+    object-fit: scale-down;
+  }
+  
+  .carousel {
+    background-color: aliceblue;
+    height: 530px;
+    width: 500px;
+    overflow: hidden;
+  }
+  
+  .image-container {
+    display: flex;
+    transform: translateX(0);
+    transition: transform 0.5s ease-in-out;
+  }
+    .button-container {
+        display: flex;
+        justify-content: center;
+        margin: 30px;
+        padding: 5px;
+        align-items: center;
+    }
+
+</style>
+<body>
+    <div class="carousel">
+        <h1>QST-1-CAROUSEL</h1>
+        <div class="image-container" id="imgs">
+            <img src="asset/image1..avif" alt="first-imagea" />
+            <img src="asset/image2.avif" alt="second-image" />
+            <img src="asset/image3.avif" alt="third-image" />
+            <img src="asset/image4.avif" alt="fourth-image" />
+        </div>
+    </div>  
+    <div class="button-container">
+        <button id="previous">Précedent</button>
+        <button id="next">Suivant</button>
+    </div>
+
+    <script>
+        // Sélection des éléments du DOM
+        const imgs = document.getElementById('imgs');
+        const images = document.querySelectorAll('#imgs img');
+        const previousButton = document.getElementById('previous');
+        const nextButton = document.getElementById('next');
+
+        // Index de l'image courante
+        let currentIndex = 0;
+
+
+        // Fonction pour changer l'image et gérer la transition
+        function imageChanger(){
+            // Gestion du retour au début si on est à la fin
+            if (currentIndex < 0){
+                currentIndex = images.length - 1;
+            }
+            // Gestion du retour à la fin si on est au début
+            if (currentIndex > images.length - 1){
+                currentIndex = 0;
+            }
+
+            // Application de la transformation pour afficher l'image courante
+            imgs.style.transform = `translateX(${-currentIndex * 500}px)`;
+            imgs.style.transition = 'transform 0.5s ease-in-out';
+        }
+
+        // Écouteur d'événement pour le bouton précédent
+        previousButton.addEventListener('click', () => {
+            currentIndex--;
+            imageChanger();
+        });
+
+        // Écouteur d'événement pour le bouton suivant
+        nextButton.addEventListener('click', () => {
+            currentIndex++;
+            imageChanger();
+        });
+    </script>
+</body>
+</html>
+
+

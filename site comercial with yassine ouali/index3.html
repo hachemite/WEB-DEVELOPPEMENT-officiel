@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Hachem Squalli et Yassiane Ouali">
+    <title>e-commerce site</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+    <style>
+        /* Custom styles */
+        .publicity {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        body {
+            background-color: #ddd;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+        .light-mode {
+            background-color: #f8f9fa;
+            color: #000;
+        }
+        #togle{position: fixed;
+        z-index: 1000;}
+        
+        .publicity {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        body {
+            background-color: #ddd;
+        }
+        
+        .carousel-item {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            display: none;
+        }
+        .carousel-item.active {
+            display: block;
+        }
+        #carouselContent .carousel-inner {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-item-next,
+        .carousel-item-prev {
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+        .carousel-item-next.carousel-item-start,
+        .active.carousel-item-end {
+            transform: translateY(100%);
+        }
+        .carousel-item-prev.carousel-item-end,
+        .active.carousel-item-start {
+            transform: translateY(-100%);
+        }
+
+        .modalbutton{
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            z-index: 1001;
+
+        }
+      .card img:hover {
+        transform: scale(1.05);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          transition: transform 0.3s ease;
+      }
+
+      nav {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    </style>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        function toggleTheme() {
+            const htmlElement = document.documentElement;
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            htmlElement.setAttribute('data-bs-theme', newTheme);
+        }
+    </script>
+  </head>
+
+  <body>
+    <!-- Dark Mode Toggle Button -->
+    <button class="btn btn-secondary position-fixed bottom-0 end-0 m-3 rounded-circle" id=togle onclick="toggleTheme()">
+        <i class="fa-solid fa-circle-half-stroke"></i>
+    </button>
+
+    <header class="publicity container-fluid text-center bg-primary text-white bg-dark">
+      <h3 class="pt-4 text-decoration-underline ">Welcome to Our Store</h3>
+      <div class="container-fluid fw-bold">
+        <div id="carouselContent" class="carousel slide fw-bold" data-bs-ride="carousel" role="region" aria-label="Promotional Content Carousel">
+          <div class="carousel-inner bg-dark">
+            <div class="carousel-item active text-center p-4" role="group" aria-label="Slide 1">
+              <p>Explode The Roads</p>
+            </div>
+            <div class="carousel-item text-center p-4" role="group" aria-label="Slide 2">
+              <p>Newest Generation of Autombile</p>
+            </div>
+            <div class="carousel-item text-center p-4" role="group" aria-label="Slide 3">
+              <p>Newest Generation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fs-5">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="img/logo.png" style="height:10vh; margin: 0 auto; width: auto;"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample04">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0 m-2">
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa-solid fa-house"></i> Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><i class="fa-solid fa-shield"></i> Models</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#"><i class="fa-solid fa-newspaper"></i> News</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">More...</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-question"></i>: FAQ</a></li>
+                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-gift"></i>: Gifts</a>
+                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-cart-shopping"></i>: Cart</a>
+              </ul>
+            </li>
+          </ul>
+          <form role="search">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          </form>
+          <li class="nav-item list-unstyled">
+            <span>
+   
+                <button type="button" class="btn btn-warning px-4 py-3 modalbutton rounded-pill my-3 mx-2" data-bs-toggle="modal" data-bs-target="#modalSignin">
+                  Subscribe Now
+            </button>
+    
+        </span>
+          </li>
+        </div>
+      </div>
+    </nav>
+
+          <main>
+            <div class="album py-5 bg-body-tertiary bg-dark">
+              <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <img src="img/1.jpg">
+                      <div class="card-body">
+                        <h5 class="card-title"><strong>Lucid Gravity 2025</strong></h5>
+                        <p class="card-text">
+                          A luxurious electric SUV offering advanced technology, spacious comfort, and impressive range for eco-conscious drivers.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
+                          </div>
+                          <small class="text-body-secondary"><strong>$100,000</strong></small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <img src="img/2.jpg">
+                      <div class="card-body">
+                        <h5 class="card-title"><strong>GMC Hummer EV SUV 2024</strong></h5>
+                        <p class="card-text">
+                          A powerful electric SUV with rugged off-road capabilities and advanced tech, perfect for adventure seekers and urban drivers.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
+                          </div>
+                          <small class="text-body-secondary"><strong>$100,000</strong></small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <img src="img/3.jpg">
+                      <div class="card-body">
+                        <h5 class="card-title"><strong>GMC Sierra HD 2024</strong></h5>
+                        <p class="card-text">
+                          A robust heavy-duty pickup truck with strong towing capacity and a refined interior, ideal for work and recreation.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
+                          </div>
+                          <small class="text-body-secondary"><strong>$75,000</strong></small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+          
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <img src="img/4.jpg">
+                      <div class="card-body">
+                        <h5 class="card-title"><strong>Mercedes-Benz EQG Concept 2021</strong></h5>
+                        <p class="card-text">
+                          An electric version of the G-Class, combining iconic design with luxury and off-road performance.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
+                          </div>
+                          <small class="text-body-secondary"><strong>$150,000</strong></small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <img src="img/5.jpg">
+                      <div class="card-body">
+                        <h5 class="card-title"><strong>Mercedes-Benz CLA Class Concept 2023</strong></h5>
+                        <p class="card-text">
+                          A sleek compact coupe with modern luxury, advanced tech, and efficiency, redefining compact cars.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
+                          </div>
+                          <small class="text-body-secondary"><strong>$40,000</strong></small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <img src="img/6.jpg">
+                      <div class="card-body">
+                        <h5 class="card-title"><strong>Aston Martin V12 Speedster 2021</strong></h5>
+                        <p class="card-text">
+                          An open-top supercar with a powerful V12 engine, offering exclusivity and thrilling performance.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
+                          </div>
+                          <small class="text-body-secondary"><strong>$1,000,000</strong></small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+          
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <img src="img/7.jpg">
+                      <div class="card-body">
+                        <h5 class="card-title"><strong>BMW i3s 2018</strong></h5>
+                        <p class="card-text">
+                          A sporty electric hatchback that combines sustainability with agility, ideal for eco-conscious urban drivers.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
+                          </div>
+                          <small class="text-body-secondary"><strong>$45,000</strong></small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <img src="img/8.jpg">
+                      <div class="card-body">
+                        <h5 class="card-title"><strong>Porsche Taycan 4S Sport Turismo 2025</strong></h5>
+                        <p class="card-text">
+                          A luxurious electric sports wagon delivering exhilarating performance and practicality with advanced technology.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
+                          </div>
+                          <small class="text-body-secondary"><strong>$120,000</strong></small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <img src="img/9.jpg">
+                      <div class="card-body">
+                        <h5 class="card-title"><strong>BMW M5 2025</strong></h5>
+                        <p class="card-text">
+                          A high-performance luxury sedan with a twin-turbo V8 engine, offering power and elegance for driving enthusiasts.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
+                          </div>
+                          <small class="text-body-secondary"><strong>$105,000</strong></small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+          
+            <footer class="footer-light  text-dark py-3">
+                <div class="container mt-5">
+                    <div class="row  ">
+                        <div class="col-md-2 footer-section ">
+                            <h5>Company</h5>
+                            <div class="footer-item">Shop Cars</div>
+                            <div class="footer-item">Gift Cards</div>
+                            <div class="footer-item">Frequent Questions</div>
+                            <div class="footer-item">Plant Care Library</div>
+                            <div class="footer-item">easyrent Blog</div>
+                            <div class="footer-item">For Business</div>
+                            <div class="footer-item">Stores</div>
+                        </div>
+                
+                        <div class="col-md-2 footer-section">
+                            <h5>Follow Us</h5>
+                            <div class="footer-item">Facebook</div>
+                            <div class="footer-item">Instagram</div>
+                            <div class="footer-item">TikTok</div>
+                        </div>
+
+
+
+                      <div class="col-md-4 footer-section mb-3">
+                          <h5>Location</h5>
+                          <div id="map" style="height: 176px; width: 400px;"></div>
+                            
+                          <script>
+                              function initMap() {
+                                  const map = new google.maps.Map(document.getElementById("map"), {
+                                      center: { lat: 33.8869, lng: 35.5131 }, // Beirut coordinates
+                                      zoom: 15,
+                                  });
+                              }
+                          </script>
+                            
+                          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrReW1cGhlgSs_qFWI4cE6KRDMeD81ilg&callback=initMap" async defer></script>
+                      </div>
+
+
+                        <div class="col-md-3 footer-section">
+                            <div class="col">
+                                
+                                    <h4 class="mb-3">Stay Rooted with our company</h4>
+                                   <p class="mb-2">Join the Hachem & Yassine family! Be the first to know about exclusive deals and exotic cars arrivals.</p>
+                                </div>
+                                <div class=" footer col d-sm-flex justify-content-between align-items-center">
+                                <div class="input-group mb-3" style="max-width: 300px; ">
+                                  <input 
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="enter your email">
+                                  <button
+                                  class="btn btn-dark"
+                                  > submit</button>
+                            </div>
+                            
+                            </div>
+                            
+                        </div>
+
+                        <hr>
+                        
+                    </div>
+                    <div class="  row flex-container" >
+                            <p class=" col flex-item ">Privacy policy</p>
+                            <p class=" col flex-item">.Terms of use</p>
+                            <p class=" col flex-item ">Patent Hachem & Yassine- Copyright © 2024</p>
+                    </div>
+
+               
+
+                    
+            </footer>
+
+ 
+
+              <div class="modal fade" id="modalSignin" tabindex="-1" aria-labelledby="modalSigninLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content rounded-4 shadow">
+                  <div class="modal-header p-5 pb-4 border-bottom-0">
+                    <h1 class="fw-bold mb-0 fs-2">Sign up for free</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+
+                  <div class="modal-body p-5 pt-0">
+                    <form class="">
+                      <div class="form-floating mb-3">
+                        <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                      </div>
+                      <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Sign up</button>
+                      <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
+                      <hr class="my-4">
+                      <h2 class="fs-5 fw-bold mb-3">Or use a third-party</h2>
+                      <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
+                        <svg class="bi me-1" width="16" height="16"><use xlink:href="#twitter"/></svg>
+                        Sign up with Twitter
+                      </button>
+                      <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">
+                        <svg class="bi me-1" width="16" height="16"><use xlink:href="#facebook"/></svg>
+                        Sign up with Facebook
+                      </button>
+                      <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
+                        <svg class="bi me-1" width="16" height="16"><use xlink:href="#github"/></svg>
+                        Sign up with GitHub
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </body>
+</html>
